@@ -8,6 +8,9 @@ def handle_stream():
     data = request.get_json()
     user_location = data['data']
     timestamp = data["timestamp"]
+    i = 0
+    for _ in range(1000000):
+        i += 1
     return jsonify({"output": user_location['x'] + user_location['y'], "timestamp": time.time(), "server_latency": time.time() - timestamp}, 200)
     
 
